@@ -5,13 +5,23 @@
 }
 
 .header {
+  height: $spacing * 8;
   display: flex;
   flex-direction: row;
-  a {
-    margin: $spacing ($spacing * 2);
+  border: 1px solid black;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    border: 1px solid black;
+    padding: $spacing ($spacing * 4);
+
+    cursor: pointer;
   }
 }
 
 .content {
   @extend %flex-one-column;
+  margin: $spacing * 4;
 }

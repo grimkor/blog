@@ -4,8 +4,8 @@ import { FC } from "react";
 const Link = ({ children, href }) => {
   const router = useRouter();
   return (
-    <a
-      href="#"
+    <div
+      className="header__link"
       onClick={(e) => {
         e.preventDefault();
         // typically you want to use `next/link` for this usecase
@@ -15,7 +15,7 @@ const Link = ({ children, href }) => {
       }}
     >
       {children}
-    </a>
+    </div>
   );
 };
 

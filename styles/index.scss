@@ -1,5 +1,12 @@
 @import "layout";
-@import "common.scss";
+@import "common";
+@import "blog";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 html {
   font-family: Monospaced, Helvetica, Arial, sans-serif;
