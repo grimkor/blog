@@ -1,0 +1,17 @@
+@import "layout";
+@import "common.scss";
+
+html {
+  font-family: Monospaced, Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  body {
+    @extend %flex-one-column;
+    #__next {
+      @extend %flex-one-column;
+    }
+  }
+}

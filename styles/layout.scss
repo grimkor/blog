@@ -1,0 +1,17 @@
+@import "vars";
+@import "common";
+.container {
+  @extend %flex-one-column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  a {
+    margin: $spacing ($spacing * 2);
+  }
+}
+
+.content {
+  @extend %flex-one-column;
+}

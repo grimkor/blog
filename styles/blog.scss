@@ -1,0 +1,13 @@
+@import "vars";
+@import "common";
+
+.list {
+  @extend %flex-one-column;
+}
+
+.row {
+  @extend %flex-one-row;
+  &__tile {
+    @extend %flex-one-column;
+  }
+}
