@@ -1,0 +1,112 @@
+@import "vars";
+@import "common";
+@import "colors";
+
+$card-width: 300px;
+$img-height: 200px;
+$text-padding: 2.5rem;
+
+.list {
+  flex: 1;
+  @extend %flex-one-row;
+  flex-wrap: wrap;
+  max-width: $contentWidth;
+  align-items: flex-start;
+}
+
+.card {
+  @extend %flex-one-column;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: $card-width;
+
+  align-items: stretch;
+  justify-content: stretch;
+  margin: $spacing * 2;
+
+  border-radius: 5px;
+  background: $theme2;
+  border: 1px solid $theme3;
+
+  transition: none 0.4s ease;
+  transition-property: scale;
+
+  &:hover {
+    transform: translateY(2px) scale(1.02);
+    transition: all 0.2s ease;
+  }
+
+  &__image {
+    cursor: pointer;
+    height: $img-height;
+    background: #c5d2d9 no-repeat 50%;
+    background-size: cover;
+  }
+
+  &__text {
+    @extend %flex-one-column;
+    align-items: stretch;
+    justify-content: stretch;
+
+    a {
+      @extend %flex-one-column;
+      justify-content: stretch;
+      align-items: stretch;
+
+      padding: $text-padding $text-padding 0 $text-padding;
+      color: black;
+
+      cursor: pointer;
+
+      header {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        color: $primary;
+      }
+      section {
+        flex: 1;
+        justify-content: stretch;
+        align-items: stretch;
+        margin-bottom: 1.5rem;
+      }
+    }
+    footer {
+      flex: 0;
+      @extend %flex-one-row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 $text-padding $text-padding $text-padding;
+    }
+    &--readtime {
+      color: $theme4;
+      border: 1px solid $secondary;
+      background: $secondary;
+      border-radius: 5px;
+      padding: ($spacing / 2) $spacing;
+    }
+  }
+
+  &__footer {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  &:nth-child(6n + 1) {
+    @media (min-width: 500px) {
+      display: flex;
+      flex-direction: row;
+      flex-basis: 100%;
+      .card__image {
+        height: auto;
+        flex: 1;
+        background-size: cover;
+      }
+      .card__text {
+        flex: 0;
+        flex-basis: $card-width;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "layout";
+@import "common";
+@import "blog";
+@import "font";
+@import "post";
+@import "font-awesome/scss/fontawesome";
+@import "font-awesome/scss/solid";
+@import "font-awesome/scss/brands";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $theme1;
+  overflow: hidden;
+
+  body {
+    @extend %flex-one-column;
+    overflow: hidden;
+    #__next {
+      @extend %flex-one-column;
+      overflow: hidden;
+    }
+  }
+}

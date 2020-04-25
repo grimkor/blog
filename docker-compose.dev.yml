@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  blog-network:
+
+services:
+  app:
+    build:
+      context: app
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./app:/app
+      - "/app/node_modules"
+    networks:
+      - blog-network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_API=http://api:5000
+
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile.dev
+    networks:
+      - blog-network
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  nginx:
+    build: nginx
+    ports:
+      - 8080:80
+    networks:
+      - blog-network

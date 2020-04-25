@@ -1,0 +1,101 @@
+@import "colors";
+@import "vars";
+
+* {
+  font-family: Monospaced, Helvetica, Arial, sans-serif;
+  //text-rendering: optimizeLegibility;
+  font-size: 100%;
+  color: white;
+  line-height: 1.7rem;
+}
+
+code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+a {
+  text-decoration: none;
+  color: $secondary;
+  &:link,
+  &:visited {
+    color: $secondary;
+    &:hover {
+      color: lighten($secondary, 10);
+    }
+  }
+}
+
+p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+section {
+  font-size: 1.2rem;
+}
+
+img,
+image {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: normal;
+}
+h2 {
+  font-size: 2.5rem;
+  line-height: normal;
+  margin: ($spacing * 5) 0;
+}
+h3 {
+  font-size: 2rem;
+  line-height: normal;
+  margin: ($spacing * 4) 0;
+}
+h4 {
+  font-size: 1.8rem;
+  line-height: normal;
+  margin: ($spacing * 3) 0;
+}
+h5 {
+  font-size: 1.5rem;
+  line-height: normal;
+  margin: ($spacing * 2) 0;
+}
+h6 {
+  font-size: 1.3rem;
+  margin: ($spacing * 1) 0;
+}
+
+pre {
+  overflow: auto;
+  margin-bottom: 2rem;
+  code {
+    display: block;
+    background: $theme2;
+    padding: 0.5rem;
+    overflow-x: auto;
+    color: lighten($theme4, 5);
+    font-size: 0.9rem;
+  }
+}
+
+blockquote {
+  background: $theme2;
+  border-left: 5px solid $secondary;
+  p {
+    font-style: italic;
+    padding: $spacing * 4;
+  }
+}
+
+.--centered {
+  text-align: center;
+}
+
+.--subheader {
+  margin-bottom: $spacing * 5;
+  color: $primary;
+}

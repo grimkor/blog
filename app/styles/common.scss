@@ -1,0 +1,21 @@
+@import "colors";
+
+%flex-one-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+%flex-one-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+%reset-anchor {
+    &:visited,
+    &:link {
+      text-decoration: none;
+      color: $theme4;
+    }
+}
