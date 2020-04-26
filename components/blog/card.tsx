@@ -13,7 +13,7 @@ const Card: FC = () => (
           summary of the article written in a section. This is the summary of
           the article written in a section. This is the summary of the article
           written in a section. This is the summary of the article written in a
-          section. This is the summary of the article written in a section.
+          section. This is the summary of the article written in a section..
         </section>
       </a>
       <footer>Footer</footer>

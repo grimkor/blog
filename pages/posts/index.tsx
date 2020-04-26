@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Card from "./card";
+import Card from "../../components/blog/card";
 
 const Blog: FC = () => (
   <div className="list">
