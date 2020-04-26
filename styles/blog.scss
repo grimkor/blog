@@ -2,7 +2,7 @@
 @import "common";
 @import "colors";
 
-$card-width: 350px;
+$card-width: 300px;
 $img-height: 200px;
 $text-padding: 2.5rem;
 
@@ -25,10 +25,11 @@ $text-padding: 2.5rem;
   margin: $spacing * 2;
 
   border-radius: 5px;
-  background: lighten($theme3, 10);
+  background: $theme2;
+  border: 1px solid $theme3;
 
-  cursor: pointer;
-  transition: all 0.5s ease;
+  transition: none 0.4s ease;
+  transition-property: scale;
 
   &:hover {
     transform: translateY(2px) scale(1.02);
@@ -36,6 +37,7 @@ $text-padding: 2.5rem;
   }
 
   &__image {
+    cursor: pointer;
     flex: 1;
     img {
       height: $img-height;
@@ -53,11 +55,15 @@ $text-padding: 2.5rem;
       align-items: stretch;
 
       padding: $text-padding $text-padding 0 $text-padding;
+      color: black;
+
+      cursor: pointer;
 
       header {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
         font-weight: 700;
+        color: $primary;
       }
       section {
         flex: 1;
@@ -75,7 +81,7 @@ $text-padding: 2.5rem;
     }
   }
 
-  &:nth-child(3n + 1) {
+  &:nth-child(6n + 1) {
     @extend %flex-one-row;
     flex-basis: 100%;
     .card__image {

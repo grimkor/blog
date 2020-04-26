@@ -13,6 +13,7 @@
   flex-direction: row;
   background: $theme1;
   color: whitesmoke;
+  border-bottom: 1px solid rgba($primary, 0.5);
 
   &__link {
     display: flex;
@@ -22,14 +23,27 @@
 
     font-size: 1.3rem;
 
+    text-decoration: none;
+    color: $theme4;
+
+    &:visited,
+    &:link {
+      text-decoration: none;
+      color: $theme4;
+    }
+
     cursor: pointer;
     transition: none 0.5s ease;
     transition-property: color, background-color;
     &:hover {
       background: lighten($theme1, 5);
-      color: lighten(whitesmoke, 5);
       transition: none 0.2s ease;
       transition-property: background-color, color;
+      &:visited,
+      &:link {
+        text-decoration: none;
+        color: lighten($theme4, 10);
+      }
     }
   }
 }
@@ -39,4 +53,19 @@
   padding: $spacing * 4;
   padding-top: $spacing * 8;
   overflow: auto;
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 5px;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba($primary, 0.5);
+  }
 }
