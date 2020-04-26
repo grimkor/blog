@@ -1,6 +1,15 @@
 @import "vars";
 @import "common";
 @import "colors";
+@import "font-awesome/scss/fontawesome";
+@import "font-awesome/scss/solid";
+@import "font-awesome/scss/brands";
+
+%icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .container {
   @extend %flex-one-column;
@@ -11,11 +20,20 @@
   height: $spacing * 8;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background: $theme1;
   color: whitesmoke;
   border-bottom: 1px solid rgba($primary, 0.5);
 
-  &__link {
+  &__group {
+    @extend %flex-one-row;
+    align-items: stretch;
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+  &__item {
+    @extend %reset-anchor;
     display: flex;
     align-items: center;
     justify-content: stretch;
@@ -25,13 +43,6 @@
 
     text-decoration: none;
     color: $theme4;
-
-    &:visited,
-    &:link {
-      text-decoration: none;
-      color: $theme4;
-    }
-
     cursor: pointer;
     transition: none 0.5s ease;
     transition-property: color, background-color;
@@ -43,6 +54,24 @@
       &:link {
         text-decoration: none;
         color: lighten($theme4, 10);
+      }
+    }
+  }
+
+  &__icon {
+    @extend %icon;
+    @extend %fa-icon;
+    @extend .fab;
+    @extend %reset-anchor;
+    justify-content: stretch;
+    align-items: stretch;
+    color: $theme4;
+    margin-right: $spacing * 2;
+    align-self: center;
+    &--github {
+      @extend .header__icon;
+      &:before {
+        content: fa-content($fa-var-github);
       }
     }
   }
