@@ -22,7 +22,7 @@ const Link = ({ children, href }) => {
 const Header: FC = () => (
   <div className="header">
     <Link href="/">Home</Link>
-    <Link href="/blog">About</Link>
+    <Link href="/blog">Blog</Link>
   </div>
 );
 

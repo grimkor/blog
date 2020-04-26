@@ -1,18 +1,89 @@
 @import "vars";
 @import "common";
+@import "colors";
+
+$card-width: 350px;
+$img-height: 200px;
+$text-padding: 2.5rem;
 
 .list {
-  @extend %flex-one-column;
+  flex: 1;
+  @extend %flex-one-row;
+  flex-wrap: wrap;
+  max-width: $card-width * 4;
+  margin: 0 auto;
 }
 
-.list-row {
-  @extend %flex-one-row;
-  justify-content: center;
-  &__tile {
+.card {
+  @extend %flex-one-column;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: $card-width;
+
+  align-items: stretch;
+  justify-content: stretch;
+  margin: $spacing * 2;
+
+  border-radius: 5px;
+  background: lighten($theme3, 10);
+
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: translateY(2px) scale(1.02);
+    transition: all 0.2s ease;
+  }
+
+  &__image {
+    flex: 1;
+    img {
+      height: $img-height;
+    }
+  }
+
+  &__text {
     @extend %flex-one-column;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    max-height: 200px;
+    align-items: stretch;
+    justify-content: stretch;
+
+    a {
+      @extend %flex-one-column;
+      justify-content: stretch;
+      align-items: stretch;
+
+      padding: $text-padding $text-padding 0 $text-padding;
+
+      header {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+      section {
+        flex: 1;
+        justify-content: stretch;
+        align-items: stretch;
+        margin-bottom: 1.5rem;
+      }
+    }
+    footer {
+      flex: 0;
+      @extend %flex-one-row;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 0 $text-padding $text-padding $text-padding;
+    }
+  }
+
+  &:nth-child(3n + 1) {
+    @extend %flex-one-row;
+    flex-basis: 100%;
+    .card__image {
+      height: 100%;
+    }
+    .card__text {
+      flex: 0;
+      flex-basis: $card-width;
+    }
   }
 }

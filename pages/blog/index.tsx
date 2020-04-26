@@ -1,13 +1,16 @@
 import React, { FC } from "react";
+import Card from "./card";
 
 const Blog: FC = () => (
   <div className="list">
-    <div className="list-row">
-        <div className="list-row__tile">Hello there list row tile</div>
-        <div className="list-row__tile">Hello there list row tile</div>
-        <div className="list-row__tile">Hello there list row tile</div>
-        <div className="list-row__tile">Hello there list row tile</div>
-    </div>
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
   </div>
 );
 
