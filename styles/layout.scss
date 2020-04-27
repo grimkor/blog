@@ -13,6 +13,7 @@
 
 .container {
   @extend %flex-one-column;
+  align-items: stretch;
   overflow: hidden;
 }
 
@@ -82,6 +83,7 @@
   padding: $spacing * 4;
   padding-top: $spacing * 8;
   overflow: auto;
+  align-items: center;
   &::-webkit-scrollbar {
     border-radius: 10px;
     height: 5px;

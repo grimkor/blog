@@ -11,6 +11,9 @@ const Post: FC<PostProps> = ({ data }) => {
     <article className="post --centered">
       <h1 className="--centered">{data.data.title}</h1>
       <h4 className="--centered --subheader">{data.data.date}</h4>
+      {data.data.image ? (
+        <img src={`http://localhost:5000/image/${data.data.image}`} />
+      ) : null}
       <ReactMarkdown source={data.content} />
     </article>
   );

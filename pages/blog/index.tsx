@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import Card from "../../components/blog/card";
 import { NextPage } from "next";
 import { PostInterface } from "../../types";
-import matter from "gray-matter";
+import fetch from "isomorphic-unfetch";
 
 interface BlogListProps {
   data: PostInterface[];
@@ -20,37 +20,14 @@ const BlogList: NextPage<BlogListProps> = (props) => (
   </div>
 );
 
-BlogList.getInitialProps = (context) => {
-  const text = `---
-title: "Hello World"
-date: "2020-01-07"
----
-This is the start of the article content that is now part of the summary.
-I'm sure there will be more text in the future.
-### Step 1
-\`\`\`
-const test = 'lol';
-\`\`\`
-
-- Install dependencies
-- Run locally
-- Deploy to Zeit
-`;
-
-  const getExcerpt = (file: any) => {
-    return (file.excerpt = file.content
-      .replace("\n", " ")
-      .split(/#(.+)/)[0] // remove anything before the first "#"
-      .split(" ")
-      .slice(0, 25)
-      .join(" "));
-  };
-
-  // @ts-ignore
-  const data: PostInterface[] = Array(10).fill(
-    matter(text, { excerpt: getExcerpt })
-  );
-  return { data };
+BlogList.getInitialProps = async (context) => {
+  const res = await fetch("http://localhost:5000/posts");
+  if (res.ok) {
+    const data = await res.json();
+    return { data };
+  } else {
+    return { data: [] };
+  }
 };
 
 export default BlogList;

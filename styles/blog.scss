@@ -10,8 +10,9 @@ $text-padding: 2.5rem;
   flex: 1;
   @extend %flex-one-row;
   flex-wrap: wrap;
-  max-width: $card-width * 4;
+  max-width: $contentWidth;
   margin: 0 auto;
+  align-items: flex-start;
 }
 
 .card {
@@ -38,10 +39,9 @@ $text-padding: 2.5rem;
 
   &__image {
     cursor: pointer;
-    flex: 1;
-    img {
-      height: $img-height;
-    }
+    height: $img-height;
+    background: #c5d2d9 no-repeat 50%;
+    background-size: cover;
   }
 
   &__text {
@@ -75,21 +75,33 @@ $text-padding: 2.5rem;
     footer {
       flex: 0;
       @extend %flex-one-row;
-      align-items: stretch;
-      justify-content: stretch;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 $text-padding $text-padding $text-padding;
+    }
+    &--readtime {
+      color: $theme4;
+      border: 1px solid $secondary;
+      background: $secondary;
+      border-radius: 5px;
+      padding: $spacing / 2;
     }
   }
 
   &:nth-child(6n + 1) {
-    @extend %flex-one-row;
-    flex-basis: 100%;
-    .card__image {
-      height: 100%;
-    }
-    .card__text {
-      flex: 0;
-      flex-basis: $card-width;
+    @media (min-width: 500px) {
+      display: flex;
+      flex-direction: row;
+      flex-basis: 100%;
+      .card__image {
+        height: auto;
+        flex: 1;
+        background-size: cover;
+      }
+      .card__text {
+        flex: 0;
+        flex-basis: $card-width;
+      }
     }
   }
 }

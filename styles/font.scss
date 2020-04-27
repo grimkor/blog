@@ -32,7 +32,6 @@ a {
 }
 
 .post {
-  margin: 0 ($spacing * 10);
   p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
@@ -47,6 +46,11 @@ a {
         color: lighten($secondary, 10);
       }
     }
+  }
+
+  img,
+  image {
+    max-width: 100%;
   }
 
   h1 {
