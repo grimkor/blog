@@ -1,3 +1,3 @@
 import React from "react";
-
-export default () => <p>Hello there!</p>;
+import BlogList from "./blog";
+export default BlogList;

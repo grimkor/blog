@@ -2,18 +2,22 @@ import React, { FC } from "react";
 
 const Icon = ({ icon, href }) => {
   return (
-    <a href={href} target="_blank" className={`header__icon--${icon} fa-2x`} />
+    <a
+      href={href}
+      target="_blank"
+      className={`app-header__icon--${icon} fa-2x`}
+    />
   );
 };
 
 const Header: FC = () => (
-  <div className="header">
-    <div className="header__group">
-      <a href="/blog" className="header__item">
+  <div className="app-header">
+    <div className="app-header__group">
+      <a href="/blog" className="app-header__item">
         Blog
       </a>
     </div>
-    <div className="header__group">
+    <div className="app-header__group">
       <Icon href="https://github.com/grimkor" icon="github" />
     </div>
   </div>
