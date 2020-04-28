@@ -13,7 +13,7 @@ const Card: FC<CardProps> = ({ post, extension }) => (
       className="card__image"
       style={{
         backgroundImage: post.data.image
-          ? `url(${process.env.REACT_APP_API}/image/${post.data.image}) `
+          ? `url(/image/${post.data.image}) `
           : "unset",
       }}
     />
