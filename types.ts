@@ -4,6 +4,7 @@ export interface PostInterface {
     date: string;
     readingTime: string;
     image?: string;
+    filename?: string;
   };
   content: string;
   excerpt: string;

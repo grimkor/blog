@@ -14,7 +14,7 @@ const BlogList: NextPage<BlogListProps> = (props) => (
       <Card
         key={post.data.title}
         post={post}
-        extension={post.data.title.replace(/ /g, "-")}
+        extension={`${post.data.filename}`}
       />
     ))}
   </div>
