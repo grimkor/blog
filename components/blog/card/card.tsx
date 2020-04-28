@@ -12,9 +12,7 @@ const Card: FC<CardProps> = ({ post, extension }) => (
       href={`/blog/${extension}`}
       className="card__image"
       style={{
-        backgroundImage: post.data.image
-          ? `url(http://10.9.0.1/image/${post.data.image}) `
-          : "unset",
+        backgroundImage: post.data.image ? `url(${post.data.image}) ` : "unset",
       }}
     />
     <div className="card__text">
