@@ -14,7 +14,9 @@ const BlogPost: NextPage<BlogPostProps> = (props) => <Post data={props.data} />;
 BlogPost.getInitialProps = async (context): Promise<BlogPostProps> => {
   const { slug } = context.query;
   const file: string = slug instanceof Array ? slug[0] : slug;
-  const res = await fetch(`http://localhost:5000/post/${file}`.toLowerCase());
+  const res = await fetch(
+    `${process.env.REACT_APP_API}/post/${file}`.toLowerCase()
+  );
 
   if (res.ok) {
     // @ts-ignore

@@ -6,13 +6,13 @@ interface CardProps {
   extension: string;
 }
 
-const Index: FC<CardProps> = ({ post, extension }) => (
+const Card: FC<CardProps> = ({ post, extension }) => (
   <article className="card">
     <a
       href={`/blog/${extension}`}
       className="card__image"
       style={{
-        backgroundImage: `url(http://localhost:5000/image/${post.data.image})`,
+        backgroundImage: `url(${process.env.REACT_APP_API}/image/${post.data.image})`,
       }}
     />
     <div className="card__text">
@@ -28,4 +28,4 @@ const Index: FC<CardProps> = ({ post, extension }) => (
   </article>
 );
 
-export default Index;
+export default Card;

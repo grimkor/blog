@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../components/blog/card";
+import Card from "../../components/blog/card/card";
 import { NextPage } from "next";
 import { PostInterface } from "../../types";
 import fetch from "isomorphic-unfetch";
@@ -14,14 +14,14 @@ const BlogList: NextPage<BlogListProps> = (props) => (
       <Card
         key={post.data.title}
         post={post}
-        extension={post.data.title.replace(" ", "-")}
+        extension={post.data.title.replace(/ /g, "-")}
       />
     ))}
   </div>
 );
 
 BlogList.getInitialProps = async (context) => {
-  const res = await fetch("http://localhost:5000/posts");
+  const res = await fetch(`${process.env.REACT_APP_API}/posts`);
   if (res.ok) {
     const data = await res.json();
     return { data };
