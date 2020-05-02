@@ -2,7 +2,7 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY . /app
+COPY pages /app
 
 RUN npm i -g pm2
 
