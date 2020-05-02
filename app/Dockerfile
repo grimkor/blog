@@ -2,13 +2,15 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY pages /app
+COPY . /app
 
 RUN npm i -g pm2
 
 RUN npm i --production && npm run build
 
 EXPOSE 3000
+
+ENV REACT_APP_API="http://api:5000"
 
 USER node
 

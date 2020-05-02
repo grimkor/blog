@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import fetch from "isomorphic-unfetch";
 import Post from "../../components/blog/post";
 import { PostInterface } from "../../types";
+import getConfig from 'next/config'
+
+const { serverRuntimeConfig } = getConfig();
 
 interface BlogPostProps {
   data: PostInterface;
@@ -15,7 +18,7 @@ BlogPost.getInitialProps = async (context): Promise<BlogPostProps> => {
   const { slug } = context.query;
   const file: string = slug instanceof Array ? slug[0] : slug;
   const res = await fetch(
-    `${process.env.REACT_APP_API}/post/${file}`.toLowerCase()
+    `${serverRuntimeConfig.API_URL}/post/${file}`.toLowerCase()
   );
 
   if (res.ok) {
