@@ -2,25 +2,32 @@ version: "3"
 
 networks:
   blog-network:
-
+  traefik-proxy:
+    external: true
 services:
   app:
     build: app
     networks:
-      blog-network:
-    environment:
-      - APP_API=http://api:5000
+      - blog-network
+  #    environment:
+  #      - APP_API=http://api:5000
 
   api:
     build: api
     networks:
-      blog-network:
+      - blog-network
     volumes:
       - ./api/posts:/app/posts
 
   nginx:
     build: nginx
-    ports:
-      - 3000:80
+    #    ports:
+    #      - 3000:80
     networks:
-      blog-network:
+      - blog-network
+      - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog.rule=Host(`grimkor.tech`) || Host(`www.grimkor.tech`)"
+      - "traefik.http.routers.blog.tls=true"
+      - "traefik.http.routers.blog.tls.certresolver=le-resolver"
