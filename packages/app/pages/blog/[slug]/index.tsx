@@ -17,7 +17,7 @@ const BlogPost: NextPage<BlogPostProps> = (props) => (
   <>
     <Head>
       <title>Grimkor Tech - {props.data.data.title}</title>
-      <meta property="description" content={props.data.data.description} />
+      <meta name="description" content={props.data.data.description} />
     </Head>
     <Post data={props.data} />
   </>

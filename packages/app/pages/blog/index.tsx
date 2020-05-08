@@ -17,7 +17,7 @@ const BlogList: NextPage<BlogListProps> = (props) => (
     <Head>
       <title>Grimkor Tech - Blog</title>
       <meta
-        property="description"
+        name="description"
         content="Blog on my thoughts and experiences as a web developer getting into self-hosting."
       />
     </Head>
