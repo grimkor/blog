@@ -6,7 +6,7 @@ COPY . /app
 
 RUN npm i -g pm2
 
-RUN npm i --production && npm run build
+RUN npm i && npm run build
 
 EXPOSE 3000
 
