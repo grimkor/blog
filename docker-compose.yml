@@ -9,6 +9,7 @@ services:
     build: 
       context: packages/app
       network: host
+    restart: unless-stopped
     networks:
       - blog-network
 
@@ -16,6 +17,7 @@ services:
     build: 
       context: packages/api
       network: host
+    restart: unless-stopped
     networks:
       - blog-network
     volumes:
@@ -25,6 +27,7 @@ services:
     build: 
       context: packages/nginx
       network: host
+    restart: unless-stopped
     networks:
       - blog-network
       - traefik-proxy

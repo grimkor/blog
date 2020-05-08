@@ -4,9 +4,11 @@ WORKDIR /app
 
 COPY . /app
 
-RUN npm i -g pm2
+RUN npm i -g pm2 next
 
-RUN npm i && npm run build
+RUN npm i
+
+RUN npm run build
 
 EXPOSE 3000
 
