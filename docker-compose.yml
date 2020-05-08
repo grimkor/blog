@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 networks:
   blog-network:
@@ -6,19 +6,25 @@ networks:
     external: true
 services:
   app:
-    build: packages/app
+    build: 
+      context: packages/app
+      network: host
     networks:
       - blog-network
 
   api:
-    build: packages/api
+    build: 
+      context: packages/api
+      network: host
     networks:
       - blog-network
     volumes:
-      - ./api/posts:/app/posts
+      - /data/posts:/app/posts
 
   nginx:
-    build: packages/nginx
+    build: 
+      context: packages/nginx
+      network: host
     networks:
       - blog-network
       - traefik-proxy
