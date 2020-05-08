@@ -3,6 +3,7 @@ export interface PostInterface {
     title: string;
     date: string;
     readingTime: string;
+    description?: string;
     image?: string;
     filename?: string;
   };

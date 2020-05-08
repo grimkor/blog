@@ -3,7 +3,8 @@ import Card from "../../components/blog/card/card";
 import { NextPage } from "next";
 import { PostInterface } from "../../types";
 import fetch from "isomorphic-unfetch";
-import getConfig from 'next/config'
+import getConfig from "next/config";
+import Head from "next/head";
 
 const { serverRuntimeConfig } = getConfig();
 
@@ -12,15 +13,20 @@ interface BlogListProps {
 }
 
 const BlogList: NextPage<BlogListProps> = (props) => (
-  <div className="list">
-    {props.data.map((post) => (
-      <Card
-        key={post.data.title}
-        post={post}
-        extension={`${post.data.filename}`}
+  <>
+    <Head>
+      <title>Grimkor Tech - Blog</title>
+      <meta
+        property="description"
+        content="Blog on my thoughts and experiences as a web developer getting into self-hosting."
       />
-    ))}
-  </div>
+    </Head>
+    <div className="list">
+      {props.data.map((post) => (
+        <Card key={post.data.title} post={post} />
+      ))}
+    </div>
+  </>
 );
 
 BlogList.getInitialProps = async () => {
