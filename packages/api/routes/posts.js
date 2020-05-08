@@ -3,13 +3,13 @@ const matter = require("gray-matter");
 const readingTime = require("reading-time");
 const _ = require("lodash");
 
-const getExcerpt = (file) => {
-  return (file.excerpt = file.content
+const getDescription = (file) => {
+  return file.content
     .replace("\n", " ")
     .split(/#(.+)/)[0] // remove anything before the first "#"
     .split(" ")
     .slice(0, 25)
-    .join(" "));
+    .join(" ");
 };
 
 module.exports = function (app) {
@@ -24,18 +24,17 @@ module.exports = function (app) {
       const filesMetadata = files
         .filter((file) => file.endsWith(".md"))
         .map((file) => {
-          const data = matter(
-            fs.readFileSync(`posts/published/${file}`, "utf8"),
-            {
-              excerpt: getExcerpt,
-            }
+          const parsedFile = matter(
+            fs.readFileSync(`posts/published/${file}`, "utf8")
           );
           return {
-            ...data,
+            ...parsedFile,
             data: {
-              ...data.data,
-              readingTime: Math.ceil(readingTime(data.content).minutes),
-              filename: file.split('.')[0]
+              ...parsedFile.data,
+              readingTime: Math.ceil(readingTime(parsedFile.content).minutes),
+              filename: file.split(".")[0],
+              description:
+                parsedFile.data.description || getDescription(parsedFile),
             },
             content: "",
           };

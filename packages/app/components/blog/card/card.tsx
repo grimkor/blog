@@ -3,22 +3,21 @@ import { PostInterface } from "../../../types";
 
 interface CardProps {
   post: PostInterface;
-  extension: string;
 }
 
-const Card: FC<CardProps> = ({ post, extension }) => (
+const Card: FC<CardProps> = ({ post }) => (
   <article className="card">
     <a
-      href={`/blog/${extension}`}
+      href={`/blog/${post.data.filename}`}
       className="card__image"
       style={{
         backgroundImage: post.data.image ? `url(${post.data.image}) ` : "unset",
       }}
     />
     <div className="card__text">
-      <a href={`/blog/${extension}`}>
+      <a href={`/blog/${post.data.filename}`}>
         <header>{post.data.title}</header>
-        <section>{post.excerpt}</section>
+        <section>{post.data.description}</section>
       </a>
       <footer className="card__footer">
         <p>{post.data.date}</p>

@@ -6,32 +6,37 @@ networks:
 services:
   app:
     build:
-      context: app
+      context: packages/app
       dockerfile: Dockerfile.dev
     volumes:
-      - ./app:/app
+      - ./packages/app:/app
       - "/app/node_modules"
     networks:
       - blog-network
     environment:
       - CHOKIDAR_USEPOLLING=true
       - REACT_APP_API=http://api:5000
-
+    depends_on:
+      - api
 
   api:
     build:
-      context: api
+      context: packages/api
       dockerfile: Dockerfile.dev
     networks:
       - blog-network
     volumes:
-      - ./api:/app
+      - ./packages/api:/app
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+
   nginx:
-    build: nginx
+    build: packages/nginx
     ports:
       - 8080:80
     networks:
       - blog-network
+    depends_on:
+      - app
+      - api

@@ -2,9 +2,10 @@ import React from "react";
 import { NextPage } from "next";
 import matter from "gray-matter";
 import fetch from "isomorphic-unfetch";
-import Post from "../../components/blog/post";
-import { PostInterface } from "../../types";
-import getConfig from 'next/config'
+import Post from "../../../components/blog/post";
+import { PostInterface } from "../../../types";
+import getConfig from "next/config";
+import Head from "next/head";
 
 const { serverRuntimeConfig } = getConfig();
 
@@ -12,7 +13,15 @@ interface BlogPostProps {
   data: PostInterface;
 }
 
-const BlogPost: NextPage<BlogPostProps> = (props) => <Post data={props.data} />;
+const BlogPost: NextPage<BlogPostProps> = (props) => (
+  <>
+    <Head>
+      <title>Grimkor Tech - {props.data.data.title}</title>
+      <meta property="description" content={props.data.data.description} />
+    </Head>
+    <Post data={props.data} />
+  </>
+);
 
 BlogPost.getInitialProps = async (context): Promise<BlogPostProps> => {
   const { slug } = context.query;
