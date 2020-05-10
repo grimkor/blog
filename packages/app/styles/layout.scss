@@ -57,6 +57,11 @@
         color: lighten($theme4, 10);
       }
     }
+
+    img {
+      object-fit: contain;
+      height: 100%;
+    }
   }
 
   &__icon {
@@ -80,8 +85,7 @@
 
 .content {
   @extend %flex-one-column;
-  padding: $spacing * 4;
-  padding-top: $spacing * 8;
+  padding: ($spacing * 8) ($spacing * 4) 0 ($spacing * 4);
   overflow: auto;
   align-items: center;
   &::-webkit-scrollbar {
@@ -111,14 +115,18 @@
   align-items: center;
 
   margin-top: $spacing * 5;
+  font-family: audiowide cursive;
 
   &__content {
     @extend %flex-one-row;
     justify-content: space-between;
 
-    max-width: $contentWidth - 100px;
+    max-width: $contentWidth;
     width: 100%;
-    p {
+    & > p,
+    a {
+      font-family: audiowide, cursive;
+      font-weight: normal;
       margin-top: $spacing * 3;
       margin-bottom: $spacing * 5;
     }

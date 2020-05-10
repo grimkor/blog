@@ -14,7 +14,7 @@ const Header: FC = () => (
   <div className="app-header">
     <div className="app-header__group">
       <a href="/blog" className="app-header__item">
-        Blog
+        <img src="/logo-banner.png" />
       </a>
     </div>
     <div className="app-header__group">
