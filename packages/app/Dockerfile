@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN npm i -g pm2 next
+RUN npm i -g pm2
 
 RUN npm i
 

@@ -1,7 +1,7 @@
 .idea
 .git
-.gitignore
 .next
+.gitignore
 .dockerignore
 Dockerfile
 node_modules
