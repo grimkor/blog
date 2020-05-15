@@ -2,7 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "docker-compose build"
+    "docker-build": "docker-compose build",
+    "build": "npm run docker-build",
+    "docker-deploy": "docker-compose up -d",
+    "deploy": "npm run build && npm run docker-deploy"
   },
   "devDependencies": {
     "lerna": "^3.20.2",
