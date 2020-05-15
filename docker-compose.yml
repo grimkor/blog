@@ -36,7 +36,7 @@ services:
       - /docker/log/nginx-blog/error.log:/var/log/nginx/error.log
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.blog.rule=Host(`grimkor.tech`)"
+      - "traefik.http.routers.blog.rule=Host(`grimbakor.com`)"
       - "traefik.http.routers.blog.tls=true"
       - "traefik.http.routers.blog.tls.certresolver=le-resolver"
       - "traefik.docker.network=traefik-proxy"

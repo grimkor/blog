@@ -22,7 +22,7 @@ const Layout: FC = ({ children }) => {
         <div className="app-footer">
           <div className="app-footer__content">
             <p>
-              <a href="https://grimkor.tech">grimkor.tech</a> © 2020
+              <a href="https://grimbakor.com">grimbakor.com</a> © 2020
             </p>
             <p>
               <a href="" onClick={scrollToTop}>
