@@ -16,7 +16,7 @@ interface BlogPostProps {
 const BlogPost: NextPage<BlogPostProps> = (props) => (
   <>
     <Head>
-      <title>Grimkor Tech - {props.data.data.title}</title>
+      <title>Grimbakor - {props.data.data.title}</title>
       <meta name="description" content={props.data.data.description} />
     </Head>
     <Post data={props.data} />
