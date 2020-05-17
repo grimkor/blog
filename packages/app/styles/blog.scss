@@ -42,7 +42,7 @@ $text-padding: 2.5rem;
   &__image {
     cursor: pointer;
     height: $img-height;
-    background: #c5d2d9 no-repeat 50%;
+    background: lighten(#c5d2d9, 15%) no-repeat 50%;
     background-size: cover;
   }
 

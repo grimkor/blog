@@ -15,7 +15,7 @@ interface BlogListProps {
 const BlogList: NextPage<BlogListProps> = (props) => (
   <>
     <Head>
-      <title>Grimkor Tech - Blog</title>
+      <title>Grimbakor - Blog</title>
       <meta
         name="description"
         content="Blog on my thoughts and experiences as a web developer getting into self-hosting."
