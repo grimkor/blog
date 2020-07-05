@@ -8,6 +8,7 @@ import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
 import typescript from "highlight.js/lib/languages/typescript";
 import javascript from "highlight.js/lib/languages/javascript";
+import { Article, H1, H4 } from "./styled";
 interface PostProps {
   data: PostInterface;
 }
@@ -28,11 +29,14 @@ const processor = unified()
 
 const Post: FC<PostProps> = ({ data }) => {
   return (
-    <article className="post">
-      <h1 className="--centered">{data.data.title}</h1>
-      <h4 className="--centered --subheader">{data.data.date}</h4>
-      {processor.processSync(data.content).result}
-    </article>
+    <Article>
+      <H1 className="--centered">{data.data.title}</H1>
+      <H4 className="--centered --subheader">{data.data.date}</H4>
+      {
+        // @ts-expect-error
+        processor.processSync(data.content).result
+      }
+    </Article>
   );
 };
 
