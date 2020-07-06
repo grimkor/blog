@@ -1,5 +1,5 @@
 export const spacing = (scale: number) => scale * 0.8;
-export const contentWidth = 1000;
+export const contentWidth = 100;
 
 export const theme1 = "#242423";
 export const theme2 = "#333533";

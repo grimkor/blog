@@ -31,6 +31,8 @@
     "unified": "^9.0.0"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "prettier": "^2.0.5"
   }
 }

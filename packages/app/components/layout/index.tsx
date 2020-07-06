@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useRef } from "react";
-import Header from "./header";
+import Banner from "./banner";
 
 const Layout: FC = ({ children }) => {
   const ref = useRef(null);
@@ -16,7 +16,7 @@ const Layout: FC = ({ children }) => {
 
   return (
     <div className="app-container">
-      <Header />
+      <Banner />
       <div className="content" ref={ref}>
         {children}
         <div className="app-footer">

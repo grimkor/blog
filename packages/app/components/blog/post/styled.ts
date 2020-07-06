@@ -3,7 +3,7 @@ import { contentWidth } from "../../../styles/constants";
 import { CenteredText, SubHeader } from "../../../styled/base";
 
 export const Article = styled.article`
-  max-width: ${contentWidth} - 10rem;
+  max-width: ${contentWidth}rem - 10rem;
   width: 100%;
   flex: 1;
   img {
